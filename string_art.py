@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import math
 
 # Load and preprocess image
-img_path = "your_image.png"  # Replace with your file name
+img_path = "icon.png"  # Replace with your file name
 image = cv2.imread(img_path, cv2.IMREAD_GRAYSCALE)
 image = cv2.resize(image, (400, 400))
 image = cv2.normalize(image, None, 0, 255, cv2.NORM_MINMAX)
