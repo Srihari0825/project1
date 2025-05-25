@@ -2,9 +2,13 @@ import cv2
 import numpy as np
 import matplotlib.pyplot as plt
 import math
+import os
+
 
 # Load and preprocess image
 img_path = "images/eye.jpeg"  # Replace with your file name
+if not os.path.exists(img_path):
+    raise FileNotFoundError(f"Input image not found at path: {img_path}")
 image = cv2.imread(img_path, cv2.IMREAD_GRAYSCALE)
 image = cv2.resize(image, (400, 400))
 image = cv2.normalize(image, None, 0, 255, cv2.NORM_MINMAX)
@@ -73,4 +77,6 @@ plt.axis("off")
 plt.show()
 
 # Save output
+os.makedirs("outputs", exist_ok=True)
 cv2.imwrite("outputs/string_art_result.png", canvas)
+print("✅ Output saved at: outputs/string_art_result.png")
